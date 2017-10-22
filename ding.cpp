@@ -18,7 +18,7 @@ ding::ding()
 	
 	this->ding_rect.x = 0;
 	this->ding_rect.y = 0;
-	this->ding_rect.w = 10;
+	this->ding_rect.w = 100;
 	this->ding_rect.h = 100;
 	
 	this->ding_direction.x = 1;

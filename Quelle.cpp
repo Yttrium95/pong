@@ -8,6 +8,7 @@
 #include "ball.h"
 #include <math.h>
 #include "ding.h"
+#include "collision_detection.h"
 
 #define HEIGHT 800
 #define WIDTH  800
@@ -60,6 +61,7 @@ int wmain(int argc, char **argv[])
 		ding1.check_edge(ding1.ding_rect);
 		ding2.mache_Posi();
 		ding2.check_edge(ding2.ding_rect);
+		collision_detection(ding1, ding2);
 
 		SDL_BlitSurface(&(ding1.GetImage()), 0, screen, &ding1.ding_rect);
 		SDL_BlitSurface(&(ding2.GetImage()), 0, screen, &ding2.ding_rect);

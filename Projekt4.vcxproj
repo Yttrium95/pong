@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ball.cpp" />
+    <ClCompile Include="collision_detection.cpp" />
     <ClCompile Include="ding.cpp" />
     <ClCompile Include="Quelle.cpp" />
     <ClCompile Include="vektor.cpp" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="ball.h" />
     <ClInclude Include="ding.h" />
+    <ClInclude Include="collision_detection.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="vektor.h" />
   </ItemGroup>

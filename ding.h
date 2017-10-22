@@ -23,6 +23,8 @@ public:
 	SDL_Rect mache_Posi();
 	SDL_Rect check_edge(SDL_Rect ding_rect);
 	
+	
+	
 
 };
 
