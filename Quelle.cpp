@@ -1,14 +1,18 @@
 
 #include <SDL.h>
+#include <windows.h>
 #include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 #include "vektor.h"
 #include "ball.h"
 #include <math.h>
 #include "ding.h"
+
 #define HEIGHT 800
 #define WIDTH  800
 #define NULL 0
+
 
 int wmain(int argc, char **argv[])
 
@@ -33,7 +37,8 @@ int wmain(int argc, char **argv[])
 
 	}
     
-	ding ding1(2,5);
+	ding ding1(7,3);
+	ding ding2(4, 8);
 
 	bool running = true;
 	
@@ -53,9 +58,14 @@ int wmain(int argc, char **argv[])
 		
 		ding1.mache_Posi();
 		ding1.check_edge(ding1.ding_rect);
+		ding2.mache_Posi();
+		ding2.check_edge(ding2.ding_rect);
 
 		SDL_BlitSurface(&(ding1.GetImage()), 0, screen, &ding1.ding_rect);
+		SDL_BlitSurface(&(ding2.GetImage()), 0, screen, &ding2.ding_rect);
 		SDL_Flip(screen);
+		Sleep(10);
+		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
 		
 	}
 
