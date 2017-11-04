@@ -12,12 +12,13 @@
 
 
 
+
 ding::ding()
 {
 	
 	this->ding_rect.x = 0;
 	this->ding_rect.y = 0;
-	this->ding_rect.w = 10;
+	this->ding_rect.w = 100;
 	this->ding_rect.h = 100;
 	
 	this->ding_direction.x = 1;
@@ -51,26 +52,15 @@ SDL_Rect ding::mache_Posi()
 
 SDL_Rect ding::check_edge(SDL_Rect ding_rect)
 {
-	switch (ding_rect.x)
+	if (ding_rect.x >= WIDTH || (ding_rect.x <= NULL))
 	{
-	case WIDTH:
 		this->ding_direction.x = this->ding_direction.x*(-1);
-		break;
-
-	case NULL:
-		this->ding_direction.x = this->ding_direction.x*(-1);
-		break;
 	}
 
-	switch (ding_rect.y)
-	{
-	case HEIGHT:
-		this->ding_direction.y = this->ding_direction.y*(-1);
-		break;
 
-	case NULL:
+	if (ding_rect.y >= HEIGHT || ding_rect.y <= NULL)
+	{
 		this->ding_direction.y = this->ding_direction.y*(-1);
-		break;
 	}
 
 	return this->ding_rect;
