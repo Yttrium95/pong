@@ -9,5 +9,5 @@
 #include "ding.h"
 #pragma once
 
-bool collision_detection(ding ding1, ding ding2);
+bool collision_detection(ding ding1, ding ding2, ding ding3);
 
