@@ -39,7 +39,7 @@ int wmain(int argc, char **argv[])
 	}
     
 	ding ding1(3,-5, 50, 90, 50, 50);
-	ding ding2(2,-3, 300, 400, 200, 50);
+	ding ding2(0,-3, 300, 400, 200, 50);
 
 	
 
