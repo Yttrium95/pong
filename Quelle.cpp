@@ -38,8 +38,10 @@ int wmain(int argc, char **argv[])
 
 	}
     
-	ding ding1(7,3);
-	ding ding2(4, 8);
+	ding ding1(3,-5, 50, 90, 50, 50);
+	ding ding2(2,-3, 300, 400, 200, 50);
+
+	
 
 	bool running = true;
 	
@@ -61,13 +63,22 @@ int wmain(int argc, char **argv[])
 		ding1.check_edge(ding1.ding_rect);
 		ding2.mache_Posi();
 		ding2.check_edge(ding2.ding_rect);
-		collision_detection(ding1, ding2);
+		
+		
 
-		SDL_BlitSurface(&(ding1.GetImage()), 0, screen, &ding1.ding_rect);
-		SDL_BlitSurface(&(ding2.GetImage()), 0, screen, &ding2.ding_rect);
+		SDL_FillRect(screen, &(ding1.ding_rect), 180);
+		SDL_FillRect(screen, &(ding2.ding_rect), 180);
 		SDL_Flip(screen);
 		Sleep(10);
 		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
+		SDL_FreeSurface(screen);
+
+		if (collision_detection(ding1, ding2))
+		{
+			std::cout << "hi" << std::endl;
+			ding1.ding_direction.x=(-1)*ding1.ding_direction.x;
+			ding2.ding_direction.x = (-1)*ding2.ding_direction.x;
+		}
 		
 	}
 
