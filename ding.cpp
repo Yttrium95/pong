@@ -23,6 +23,7 @@ ding::ding()
 	
 	this->ding_direction.x = 1;
 	this->ding_direction.y = 1;
+	int ding_colour = 200;
 		
 }
 
@@ -36,6 +37,7 @@ ding::ding(int a, int b, int c, int d, int e, int f)
 	this->ding_rect.y = d;
 	this->ding_rect.h = e;
 	this->ding_rect.w = f;
+	
 }
 
 ding::~ding()
@@ -70,5 +72,13 @@ SDL_Rect ding::change_direction(SDL_Rect direction)
 	direction.x = direction.x*(-1);
 	direction.y = direction.y*(-1);
 	return direction;
+}
+
+SDL_Rect ding::updateposition()
+{
+	this->ding_rect.y = ding_rect.y;
+	this->ding_rect.x = ding_rect.x;
+	return ding_rect;
+
 }
 

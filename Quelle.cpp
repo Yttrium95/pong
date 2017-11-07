@@ -26,7 +26,8 @@ int wmain(int argc, char **argv[])
 	}
 
 	atexit(&SDL_Quit);
-
+	
+	SDL_EnableUNICODE(1);
 
 	SDL_Surface *screen = SDL_SetVideoMode(HEIGHT, WIDTH, 32, SDL_DOUBLEBUF);
 
@@ -39,8 +40,8 @@ int wmain(int argc, char **argv[])
 	}
     
 	ding ding1(5,-2, 100, 400, 50, 50);
-	ding ding2(0,-3, 50, 300, 200, 50);
-	ding ding3(0, 3, 700, 300, 200, 50);
+	ding ding2(0, 0, 50, 300, 200, 50);
+	ding ding3(0, 0, 700, 300, 200, 50);
 	
 
 	bool running = true;
@@ -55,22 +56,40 @@ int wmain(int argc, char **argv[])
 			{
 					case SDL_QUIT:
 					running = false;
-					return 0;
+					return 0; 
+
+					case SDL_KEYDOWN:
+					{
+						ding2.ding_rect.y = ding2.ding_rect.y-10;
+						
+						break;
+					}
+
+					case SDL_KEYUP:
+					{
+						ding2.ding_direction.y = ding2.ding_direction.y+10;
+						break;
+					}
+
 			}
 		}
 		
 		ding1.mache_Posi();
 		ding1.check_edge(ding1.ding_rect);
+
+		ding2.updateposition();
+		ding3.updateposition();
 		
-		ding2.mache_Posi();
-		ding2.check_edge(ding2.ding_rect);
+		//ding2.mache_Posi();
+		//ding2.check_edge(ding2.ding_rect);
 		
-		ding3.mache_Posi();
-		ding3.check_edge(ding2.ding_rect);
+		//ding3.mache_Posi();
+		//ding3.check_edge(ding2.ding_rect);
 		
-		SDL_FillRect(screen, &(ding1.ding_rect), 250);
-		SDL_FillRect(screen, &(ding2.ding_rect), 200);
-		SDL_FillRect(screen, &(ding3.ding_rect), 200);
+
+		SDL_FillRect(screen, &(ding1.ding_rect), ding1.ding_colour);
+		SDL_FillRect(screen, &(ding2.ding_rect), ding2.ding_colour);
+		SDL_FillRect(screen, &(ding3.ding_rect), ding3.ding_colour);
 
 		SDL_Flip(screen);
 		Sleep(10);
@@ -85,6 +104,7 @@ int wmain(int argc, char **argv[])
 			ding1.ding_direction.x=(-1)*ding1.ding_direction.x;
 			ding2.ding_direction.x = (-1)*ding2.ding_direction.x;
 			ding3.ding_direction.x = (-1)*ding3.ding_direction.x;
+			ding1.ding_colour = ding1.ding_colour + 30;
 		}
 		
 	}
