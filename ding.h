@@ -20,7 +20,7 @@ public:
 	ding();
 	ding(int a, int b, int c, int d, int e, int f);
 	~ding();
-	SDL_Rect mache_Posi();
+	SDL_Rect set_Posi();
 	SDL_Rect check_edge(SDL_Rect ding_rect);
 	SDL_Rect change_direction(SDL_Rect direction);
 	SDL_Rect updateposition();

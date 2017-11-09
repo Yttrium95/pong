@@ -60,21 +60,35 @@ int wmain(int argc, char **argv[])
 
 					case SDL_KEYDOWN:
 					{
-						ding2.ding_rect.y = ding2.ding_rect.y-10;
+						if (event.key.keysym.sym == SDLK_UP)
+						{
+							ding2.ding_rect.y = ding2.ding_rect.y - 40;
+							break;
+						}
 						
-						break;
-					}
+						if (event.key.keysym.sym == SDLK_DOWN)
+						{
+							ding2.ding_rect.y = ding2.ding_rect.y + 40;
+							break;
+						}
 
-					case SDL_KEYUP:
-					{
-						ding2.ding_direction.y = ding2.ding_direction.y+10;
-						break;
+						if (event.key.keysym.sym == SDLK_w)
+						{
+							ding3.ding_rect.y = ding3.ding_rect.y - 40;
+							break;
+						}
+
+						if (event.key.keysym.sym == SDLK_s)
+						{
+							ding3.ding_rect.y = ding3.ding_rect.y + 40;
+							break;
+						}
 					}
 
 			}
 		}
 		
-		ding1.mache_Posi();
+		ding1.set_Posi();
 		ding1.check_edge(ding1.ding_rect);
 
 		ding2.updateposition();
@@ -100,7 +114,7 @@ int wmain(int argc, char **argv[])
 
 		if (collision_detection(ding1, ding2, ding3))
 		{
-			std::cout << "hi" << std::endl;
+			//std::cout << "hi" << std::endl;
 			ding1.ding_direction.x=(-1)*ding1.ding_direction.x;
 			ding2.ding_direction.x = (-1)*ding2.ding_direction.x;
 			ding3.ding_direction.x = (-1)*ding3.ding_direction.x;

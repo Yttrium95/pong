@@ -44,7 +44,7 @@ ding::~ding()
 {
 }
 
-SDL_Rect ding::mache_Posi()
+SDL_Rect ding::set_Posi()
 {
 	this->ding_rect.x = this->ding_direction.x+ this->ding_rect.x;
 	this->ding_rect.y = this->ding_direction.y+ this->ding_rect.y;
